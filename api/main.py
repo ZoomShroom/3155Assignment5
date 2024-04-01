@@ -156,7 +156,7 @@ def update_one_recipe(recipe_id: int, recipe: schemas.RecipeUpdate, db: Session 
     return recipes.update(db=db, recipe=recipe, recipe_id=recipe_id)
 
 
-@app.delete("/resources/{resource_id}", tags=["Resources"])
+@app.delete("/recipes/{recipe_id}", tags=["Recipes"])
 def delete_one_recipe(recipe_id: int, db: Session = Depends(get_db)):
     recipe = recipes.read_one(db, recipe_id=recipe_id)
     if recipe is None:
